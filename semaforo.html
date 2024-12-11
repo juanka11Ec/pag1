@@ -9,78 +9,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculos</title>
+</head>
 <body>
-    <header >
-        <h1></h1>
-    </header>
-    <main>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f0f0f0;
-            }
-            .container {
-                display: flex;
-                flex-direction: column; 
-                gap: 20px; 
-            }
-            .circle {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%; 
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                
-                
-            }
-            #red {
-                background-color: red; /* Color rojo */
-            }
-            #orange {
-                background-color: orange; /* Color naranja */
-            }
-            #green {
-                background-color: green; /* Color verde */
-            }
-        </style>
-    </main>
-    <div class="container">
-        <div class="container">
-            <div class="button-container d-flex align-items-center">
-                <div id="red" class="circle "></div>
-                <button class=" btn-danger ms-4" onclick="prendercirulo('red')">Rojo</button>
-            </div>
-        </div>
-        
-        <div class="button-container  d-flex align-items-center">
-            <div id="orange" class="circle"></div>
-            <button class=" btn-danger ms-4" onclick="prendercirulo('orange')">Naranja</button>
-        </div>
-        <div class="button-container  d-flex align-items-center">
-            <div id="green" class="circle"></div>
-            <button class=" btn-danger ms-4" onclick="prendercirulo('green')">Verde</button>
-        </div>
-    </div>
+    <header>SEMAFORO</header>
+    <div class="circle" id="rojo" style="width: 100px; height: 100px; background-color: red; opacity: 0.3; border-radius: 50%;">  </div>
+    <div class="circle" id="naranja" style="width: 100px; height: 100px; background-color:orange; opacity: 0.3; border-radius: 50%;"></div>
+    <div class="circle" id="verde" style="width: 100px; height: 100px; background-color:green; opacity: 0.3; border-radius: 50%;"></div>
+
+    <button onclick="prendercirulo('rojo')"> Rojo</button>
+    <button onclick="prendercirulo('naranja')">naranja</button>
+    <button onclick="prendercirulo('verde')">verde</button>
+
     <script>
-         function prendercirulo(color) {
-            // Selecciona todos los círculos
+        function prendercirulo(color) {
             const circles = document.querySelectorAll('.circle');
-            
-            // Itera sobre cada círculo
             circles.forEach(circle => {
-                if (circle.id === color) {
-                    circle.style.opacity = '1'; // Enciende el color (opacidad completa)
-                } else {
-                    circle.style.opacity = '0.3'; // Apaga los demás (opacidad reducida)
-                }
+                circle.style.opacity = circle.id === color ? '1' : '0.3';
             });
         }
-    </script> 
+    </script>
 </body>
-<footer>
-
-</footer>
+</html>
