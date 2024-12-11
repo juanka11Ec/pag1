@@ -42,11 +42,24 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4" id="color1">
+                <p>Div de prueba 1</p>
+            </div>
+            <div class="col-md-4" id="color2">
+                <p>Div de prueba 2</p>
+            </div>
+        </div>
+        <button class="btn btn-success" onclick="CambiarColor('color1','green','color2','white')" >Cambiar Color 1</button>
+        <button class="btn btn-danger" onclick="CambiarColor('color2','red','color1','white')" >Cambiar Color 2</button>
+        <br>
         <div class="card bg-secondary text-light shadow mb-5" style="max-width: 600spx;">
             <img src="boly.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen personalizada" style="height: 600px; object-fit: cover;">
             <div class="card-body">
-                <a href="https://www.facebook.com/juano.villa.3" class="btn btn-outline-light">Facebook</a>
+                <a href="https://www.facebook.com/juano.villa.3" onclick="showMessage()" class="btn btn-outline-light">Facebook</a>
                 <a href="https://www.youtube.com/watch?v=KhJ8OAJ8kBk" class="btn btn-warning mt-2">YouTube</a>
+                <a  onclick="Cambiartexto()" class="btn btn-warning mt-2">Cambiar</a>
             </div>
         </div>
         <div class="container">
@@ -94,6 +107,22 @@
         <p class="mb-0"> @derechos reservados</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function showMessage() {
+            alert("has presionado el boton aceptar");
+        }
+
+        function Cambiartexto(){
+            const texto = document.querySelector('.mb-2') // sirve para atrapar elementos por su clase
+            texto.textContent ="Este es el nuevo contenido de JS";
+        }
+
+        function CambiarColor(idElemnto, color,color2){
+            const d = document.getElementById(idElemnto);
+            d.style.backgroundColor = color,color2 ;
+        }
+
+    </script>
 </body>
 
 </html>
